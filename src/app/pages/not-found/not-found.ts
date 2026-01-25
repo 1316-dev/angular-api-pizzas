@@ -7,5 +7,7 @@ import { Component } from '@angular/core';
   styleUrl: './not-found.css',
 })
 export class NotFound {
+  pizzaHomePath: string = 'assets/pizza-home.jpeg';
+  pizzaHomeText: string = 'image de pizza maison';
 
 }
