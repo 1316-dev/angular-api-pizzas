@@ -3,24 +3,22 @@ import { ApiRecipe, Recipe } from '../../types/api-recipe';
 import { ExampleRecipe } from '../../services/example-recipe';
 import { Card } from '../../shared/component/card/card';
 import { Button } from '../../shared/component/button/button';
-
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-recipes',
-  imports: [Card, Button],
+  imports: [Card, Button, RouterLink],
   templateUrl: './recipes.html',
   styleUrl: './recipes.css',
 })
 export class Recipes implements OnInit {
+  tittleButton: string = 'Voir la recette';
+  
   recipes!: Recipe[];
   private readonly exampleRecipe = inject(ExampleRecipe);
 
-
-   
   private  minId = Math.floor(Math.random() * 30);
   private  maxId = this.minId + 9;
-
-  
 
   ngOnInit() {
     if (this.maxId > 30) {
@@ -38,5 +36,5 @@ export class Recipes implements OnInit {
         }
       });
   }
-
+  
 }

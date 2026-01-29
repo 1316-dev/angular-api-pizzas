@@ -6,8 +6,8 @@
         {{description}}
     </p>
   </div>
-  <app-button [title]="tittleButton"></app-button>
-  @if (tags && tags.length > 0) {
+  <ng-content></ng-content>
+    @if (tags && tags.length > 0) {
   <div class="px-6 pt-4 pb-2">
     @for (tag of tags; track tag) {
       <span class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">

@@ -6,7 +6,10 @@
         [description]="recipe.ingredients" 
         [imageUrl]="recipe.image"
         [tags]="recipe.tags"
+        [id]="recipe.id"
         class="h-full">
+        <app-button [title]="tittleButton" [routerLink]="['/detail', recipe.id]">"></app-button>
+
       </app-card>
     } @empty {
       <p class="col-span-full text-center py-10 text-gray-500 italic">
