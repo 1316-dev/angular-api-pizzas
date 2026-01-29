@@ -11,7 +11,7 @@ import { Button } from '../../../shared/component/button/button';
 export class Header {
     logoPath: string = 'assets/logo.png';
     logoText: string = 'Pizza API';
-    tittleButton: string = 'Générer des recettes';
+    tittleButton: string = 'Generate recipes';
     private router = inject(Router);
 
     refreshPage() {

@@ -11,6 +11,6 @@ import { RouterLink } from '@angular/router';
 export class Home {
   pizzaHomePath: string = 'assets/pizza-home.jpeg';
   pizzaHomeText: string = 'image de pizza maison';
-  tittleButton: string = 'Générer des recettes';
+  tittleButton: string = 'Recipe Generator';
 
 }
