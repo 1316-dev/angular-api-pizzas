@@ -12,7 +12,7 @@ import { RouterLink } from '@angular/router';
   styleUrl: './recipes.css',
 })
 export class Recipes implements OnInit {
-  tittleButton: string = 'Voir la recette';
+  tittleButton: string = 'Recipe Details';
   
   recipes!: Recipe[];
   private readonly exampleRecipe = inject(ExampleRecipe);
