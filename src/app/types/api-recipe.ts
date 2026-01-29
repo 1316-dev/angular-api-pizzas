@@ -11,7 +11,7 @@ export type Recipe = {
     name: string;
     ingredients: string[];
     instructions: string[];
-    cookTime: number;
+    cookTimeMinutes: number;
     image: string;
     tags: string[];
 }

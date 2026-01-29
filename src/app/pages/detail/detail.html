@@ -1,27 +1,63 @@
 
     @defer (on timer(2000)) {
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-h-[80vh] overflow-y-auto p-4 [scrollbar-width:none]">
-        <h1 class="mb-4 text-4xl font-bold tracking-tight text-heading md:text-5xl lg:text-6xl">{{recipe.name}}</h1>
-          <app-card  
-            [imageUrl]="recipe.image"
-            [tags]="recipe.tags"
-            class="h-full">
-          </app-card>
-
-          <h2 class="mb-2 text-lg font-medium text-heading">Ingrédients</h2>
-                <ul class="max-w-md space-y-1 text-body list-disc list-inside"> 
-                    @for (ingredient of recipe.ingredients; track recipe.id) {
-                        <li>{{ingredient}}</li>
-                    }
-                </ul>
-        <h2 class="mb-2 text-lg font-medium text-heading">Instructions</h2>
-        <ul class="max-w-md space-y-1 text-body list-disc list-inside"> 
-            @for (instruction of recipe.instructions; track recipe.id) {
-                <li>{{instruction}}</li>
-            }
-        </ul>
+    
+        <div class="max-w-5xl mx-auto p-6 bg-white shadow-sm rounded-xl">
+            <h1 class="mb-6 text-4xl font-extrabold tracking-tight text-slate-900 md:text-5xl lg:text-6xl">
+              {{recipe.name}}
+            </h1>
           
-    </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+              <div class="space-y-4">
+                <app-card 
+                  [imageUrl]="recipe.image" 
+                  [tags]="recipe.tags" 
+                  class="block w-full rounded-2xl overflow-hidden shadow-lg transition-transform hover:scale-[1.02]">
+                </app-card>
+          
+                <div class="flex items-center gap-2 p-4 bg-pink-50 text-pink-700 rounded-lg border border-pink-100">
+                  <span class="font-bold">⏱ Temps de cuisson :</span>
+                  <span>{{recipe.cookTimeMinutes}} minutes</span>
+                </div>
+              </div>
+          
+              <div class="space-y-8">
+                
+                <section>
+                  <h2 class="flex items-center gap-2 mb-4 text-2xl font-bold text-slate-800">
+                    <span class="text-pink-500 text-3xl">·</span> Ingrédients
+                  </h2>
+                  <ul class="grid grid-cols-1 sm:grid-cols-2 gap-2 text-slate-600"> 
+                    @for (ingredient of recipe.ingredients; track $index) {
+                      <li class="flex items-start gap-2 bg-slate-50 p-2 rounded-md border-l-4 border-pink-400">
+                        {{ingredient}}
+                      </li>
+                    }
+                  </ul>
+                </section>
+          
+                <hr class="border-slate-100">
+          
+                <section>
+                  <h2 class="flex items-center gap-2 mb-4 text-2xl font-bold text-slate-800">
+                    <span class="text-pink-500 text-3xl">·</span> Instructions
+                  </h2>
+                  <ol class="space-y-4 text-slate-600"> 
+                    @for (instruction of recipe.instructions; track $index) {
+                      <li class="flex gap-4">
+                        <span class="flex-shrink-0 flex items-center justify-center w-8 h-8 rounded-full bg-pink-500 text-white font-bold text-sm">
+                          {{ $index + 1 }}
+                        </span>
+                        <p class="pt-1 leading-relaxed">{{instruction}}</p>
+                      </li>
+                    }
+                  </ol>
+                </section>
+          
+              </div>
+            </div>
+          </div>
+          
+    
             
     } 
     
