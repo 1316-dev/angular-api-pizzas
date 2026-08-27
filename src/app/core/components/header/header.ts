@@ -1,6 +1,7 @@
 import { Component, inject } from '@angular/core';
-import { Router, RouterLink } from '@angular/router';
+import { NavigationEnd, Router, RouterLink } from '@angular/router';
 import { Button } from '../../../shared/component/button/button';
+import { filter } from 'rxjs';
 
 @Component({
   selector: 'app-header',
@@ -13,6 +14,19 @@ export class Header {
     logoText: string = 'Pizza API';
     tittleButton: string = 'Generate recipes';
     private router = inject(Router);
+
+    showButton: boolean = true;
+
+    constructor() {
+    // Réagit à chaque changement de route
+    this.router.events.pipe(
+      filter((event): event is NavigationEnd => event instanceof NavigationEnd)
+    ).subscribe((event: NavigationEnd) => {
+      this.showButton = !event.urlAfterRedirects.includes('/home');
+    });
+  }
+
+
 
     refreshPage() {
     const currentUrl = this.router.url;

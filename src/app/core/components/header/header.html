@@ -1,17 +1,19 @@
 <div class="w-full h-full bg-gray-900 dark:bg-gray-200">
-    <header class="lg:px-16 px-4 flex flex-wrap items-center py-4 shadow-lg">
+    <header class=" lg:px-16 px-4 flex flex-wrap items-center py-4 shadow-lg">
         <div class="flex-1 flex justify-between items-center">
             <img class="sm:w-[7rem] w-[7rem]" [src]="logoPath" [alt]="logoText"/>
         </div>
         
 
-        <div class="hidden md:flex md:items-center md:w-auto w-full" id="menu">
+       <div class="sm:flex md:flex md:items-center md:w-auto w-full" id="menu">
             <nav>
-                <ul class="md:flex items-center justify-between text-base text-gray-100 dark:text-gray-600 pt-4 md:pt-0">
-                    <li><a routerLink="/home" class="md:p-4 py-3 px-0 block" >Home</a></li>
+                <ul class="sm:flex md:flex items-center justify-between text-base text-gray-100 dark:text-gray-600 pt-4 md:pt-0">
+                    @if (showButton) {
+                    <li><a routerLink="/home" class=" md:p-4 py-3 px-0 block"  >Home</a></li>
                     <li><app-button [title]="tittleButton" (click)="refreshPage()"></app-button></li> 
+                    }
 
                 </ul>
             </nav>
-        </div>
+        </div>>
     </header>
